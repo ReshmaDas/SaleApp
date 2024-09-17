@@ -21,11 +21,15 @@ class Product {
   factory Product.fromFirestore(Map<String, dynamic> data) {
     return Product(
       address: data['address'] as String? ?? '',
-      items: data['items'] != null ? ItemDetails.fromMap(data['items'] as Map<String, dynamic>) : null,
+      items: data['items'] != null
+          ? ItemDetails.fromMap(data['items'] as Map<String, dynamic>)
+          : null,
       nameCustomer: data['name_customer'] as String? ?? '',
       phoneNumber: data['phn_no'] as String? ?? '',
       totalAmount: data['total_amout'] as String? ?? '',
-      date: (data['date'] != null) ? (data['date'] as Timestamp).toDate() : DateTime.now(),
+      date: (data['date'] != null)
+          ? (data['date'] as Timestamp).toDate()
+          : DateTime.now(),
     );
   }
 
@@ -37,7 +41,9 @@ class Product {
       'name_customer': nameCustomer ?? '',
       'phn_no': phoneNumber ?? '',
       'total_amout': totalAmount ?? '',
-      'date': date != null ? Timestamp.fromDate(date!) : null, // Handle nullable date
+      'date': date != null
+          ? Timestamp.fromDate(date!)
+          : null, // Handle nullable date
     };
   }
 }
@@ -49,10 +55,10 @@ class ItemDetails {
   final String? unit;
 
   ItemDetails({
-     this.itemName,
-     this.quantity,
-     this.rate,
-     this.unit,
+    this.itemName,
+    this.quantity,
+    this.rate,
+    this.unit,
   });
 
   // Factory constructor to create an ItemDetails instance from a map
@@ -75,4 +81,3 @@ class ItemDetails {
     };
   }
 }
-

@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_rx/get_rx.dart';
@@ -35,6 +37,7 @@ class HomeController extends GetxController {
     customerName = TextEditingController();
     phnNumber = TextEditingController();
     billingAddress = TextEditingController();
+    generateRandomNumber();
     super.onInit();
   }
 
@@ -73,5 +76,14 @@ class HomeController extends GetxController {
     print("The gst_Amount : ${AmountWithGst}");
     taxAmount.value = AmountWithGst;
     print("The Tax Amount : ${taxAmount.value}");
+  }
+
+  var randomNumber = 0.obs;
+
+  // Function to generate random number
+  void generateRandomNumber() {
+    Random random = Random();
+    randomNumber.value = 10000 +
+        random.nextInt(90000); // Generate a random number between 0 and 100
   }
 }

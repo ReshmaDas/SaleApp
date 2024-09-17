@@ -279,7 +279,10 @@ class SalePage extends StatelessWidget {
                           child: Column(
                             children: [
                               Text('Invoice No.'),
-                              Text('12345.'),
+                              Obx(() => Text(
+                                    '${homeController.randomNumber}',
+                                    style: TextStyle(fontSize: 18),
+                                  )),
                             ],
                           ),
                         ),

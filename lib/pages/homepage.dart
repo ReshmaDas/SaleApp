@@ -19,6 +19,9 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+    double width = size.width;
+    double height = size.height;
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 106, 159, 202),
       appBar: PreferredSize(
@@ -40,15 +43,22 @@ class HomePage extends StatelessWidget {
               ),
               actions: [
                 Icon(Icons.notifications),
+                SizedBox(
+                  width: 15,
+                ),
                 Icon(Icons.settings),
+                SizedBox(
+                  width: 15,
+                ),
               ],
               bottom: PreferredSize(
                 preferredSize: Size.fromHeight(60),
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Container(
                       height: 38,
-                      width: 200,
+                      width: width / 2 - 20,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(50),
                         border: Border.all(color: Colors.red),
@@ -67,7 +77,7 @@ class HomePage extends StatelessWidget {
                     ),
                     Container(
                       height: 38,
-                      width: 200,
+                      width: width / 2 - 20,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(50),
                         border: Border.all(color: Colors.grey),
